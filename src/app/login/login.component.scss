@@ -1,0 +1,152 @@
+#main-cnt
+{
+    position: absolute;
+    top: 200px;
+    left: 450px;
+    width: 624px;
+    height: 391px;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 21px;
+    opacity: 1;
+}
+#image1
+{
+    width: 245px;
+    height: 245px;
+    width: 245px;
+    height: 245px;
+    background: transparent;
+    opacity: 1;
+    border: 2px transparent solid;
+    border-radius: 50%;
+}
+#desc
+{
+    width: 240px;
+    height: 24px;
+    /* UI Properties */
+    text-align: center;
+    font: normal normal medium 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: uppercase;
+    opacity: 1;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 30px;
+}
+#header-right
+{
+    display: flex;
+    justify-content: space-between;
+}
+#left-main-cnt
+{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top:70px;
+    left:30px;
+}
+#right-main-cnt
+{
+    position: absolute;
+    top: -18px;
+    left: 320px;
+    padding: 30px 60px;
+    box-sizing: border-box; 
+    width: 389px;
+    height: 425px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 15px #00000029;
+    border: 1px solid #E4E4E4;
+    border-radius: 6px;
+    opacity: 1;
+}
+.login-header
+{
+    font-size: 22px;
+    /* UI Properties */
+    text-align: left;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    font-weight: 600;
+    color: #0A0102;
+    text-transform: uppercase;
+    opacity: 1;
+}
+.email-password-col
+{
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 12px;
+    margin-top: 20px;
+}
+#email-input
+{
+    width: 260px;
+    height: 35px;
+}
+#dash
+{
+    width: 22px;
+    height: 5px;
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}
+#login-button
+{
+    width: 252px;
+    height: 37px;
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    margin-top: 20px;
+    opacity: 1;
+    color:white;
+    transform: translateX(10px);
+}
+
+.line
+{
+    width: 64px;
+    height: 0px;
+    /* UI Properties */
+    border: 1px solid #E1E4EA;
+    opacity: 1;
+    margin: 20px;
+}
+#or-cnt
+{
+    display: flex;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.facebook-option
+{
+    width: 126px;
+    height: 37px;
+    /* UI Properties */
+    background: #4266B2 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+}
+.google-option
+{
+    width: 119px;
+    height: 37px;
+    /* UI Properties */
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border: 1px solid #E4E4E4;
+    border-radius: 3px;
+    opacity: 1;
+}
+#login-options-cnt
+{
+    display: flex;
+    justify-content: space-around;
+}

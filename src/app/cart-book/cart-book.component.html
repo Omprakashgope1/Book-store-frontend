@@ -1,0 +1,23 @@
+<div class = "book-cnt">
+    <img [src] = "cart.image" alt = "book">
+    <div class = "book-desc">
+        <span>{{cart.title}}</span>
+        <span id = "author">{{cart.author}}</span>
+        <div id = "money" *ngIf = "input == 'order' else other">
+            <span>Rs.{{cart.price}}</span>
+            <span>Rs.{{cart.price + 100}}</span>
+        </div>
+        <ng-template #other>
+            <div id = "money">
+                <span>Rs.{{cart.price*cart.quantity}}</span>
+                <span>Rs.{{cart.quantity*(cart.price + 100)}}</span>
+            </div>
+        </ng-template>
+        <div id = "options" *ngIf = "input == 'order'">
+            <div (click) = "handleAmount('sub')">-</div>
+            <input type = "text" [(ngModel)] = "cartNumber" style = "text-align: center;"readonly>
+            <div (click) = "handleAmount('add')">+</div>
+            <button (click) = "removeCart()">Remove</button>
+        </div>
+    </div>
+</div>

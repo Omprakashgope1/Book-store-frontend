@@ -1,0 +1,21 @@
+<div id = 'main-outer-cnt'>
+    <div class = "book-cnt">
+        <img [src] = "order.image" alt = "book">
+        <div class = "book-desc">
+            <span id = 'title'>{{order.title}}</span>
+            <span id = "author">{{order.author}}</span>
+            <div id = "money">
+                <span>Rs.{{order.price*order.quantity}}</span>
+                <span>Rs.{{(order.price + 100)*order.quantity}}</span>
+            </div>
+        </div>
+    </div>
+    <div id = "message-div" *ngIf = "true else other" style = "width: 30%;">
+        <span id = "order-message">Order placed on 27 may</span>
+    </div>
+    <ng-template #other>
+        <div id = "delete-div">
+        <mat-icon svgIcon = "delete-forever-icon"></mat-icon>
+        </div>
+    </ng-template>
+</div>

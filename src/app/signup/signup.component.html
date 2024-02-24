@@ -1,0 +1,36 @@
+<app-alert-message [show] = "showAlert" [message] = "'invalid input'"></app-alert-message>
+<div id = "main-cnt">
+    <div id = "left-main-cnt">
+        <img src="../../assets/images/2766594.png" 
+        alt="login_icon" id = "image1" >  
+        <span id ="desc">ONLINE BOOK SHOPPING</span>
+    </div>
+    <div id = "right-main-cnt">
+        <form [formGroup] = "signupForm" style = "display: flex;flex-direction: column;gap:15px">
+        <div id = "header-right">
+            <span class = "login-header"style="color: #878787;"(click) = "handleLogin()">LOGIN</span>
+            <div style="align-items: center;display: flex;flex-direction: column;">
+                <span class = "login-header" >SIGNUP</span>
+                <div id="dash"></div>
+            </div>
+        </div>
+        <div class = "full-name-cnt">
+            <span class = "input-headers">Full Name</span>
+            <input type = "text" class = "input-field"placeholder = "Pawan Kumar" formControlName = "fullName">
+        </div >
+        <div class = "full-name-cnt">
+            <span class = "input-headers">Email Id</span>
+            <input type = "text" class = "input-field" placeholder = "pavan@gmail.com"formControlName = "email">
+        </div>
+        <div class = "full-name-cnt">
+            <span class = "input-headers">Password</span>
+            <input type = "password" class = "input-field" placeholder="***********" formControlName = "password">
+        </div>
+        <div class = "full-name-cnt">
+            <span class = "input-headers">Mobile Number</span>
+            <input type = "tel" class = "input-field"placeholder = "8527419635" formControlName = "mobnum">
+        </div>
+        <button id = "signup-button" (click) = "handleSignUp()">Signup</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class = "address-detail" *ngIf = "toggle else other" style = "width: 70%;">
+    <app-edit-cart-address [inputAddress] = "inputField" [count] = "1"></app-edit-cart-address>
+</div>
+<ng-template #other>
+<div class = "address-detail">
+    <div class = "home-address">
+        <span id = "home-span">
+            {{inputField.type == 1 ? 'Home' : inputField.type == 2 ? 'Work':'Other'}}
+        </span>
+    </div>
+    <div style = "margin-top: 5px;">
+        <span class = "full-info">Address</span>
+        <span id = "full-address-span">
+            {{fullAddress}} {{city}} {{state}}
+        </span>
+    </div>
+</div>
+ </ng-template>

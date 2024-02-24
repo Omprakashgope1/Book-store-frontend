@@ -1,0 +1,37 @@
+<div style = "display: flex;justify-content: space-between;width:90%;">
+    <span id = "book-label">Home/<span>Profile</span></span>
+</div>
+<div id = "main-cnt" [formGroup] = 'userDetailForm'>
+<div class = "your-details">
+    <div style="display: flex;justify-content: space-between;">
+        <div class = "header-contain" style="display: flex;">
+            <span class = "title" class = "sub-title" style="width: fit-content;">Personal Details</span>
+            <span class = "edit-label" (click) = "profileEdit()">{{EditSpan}}</span>
+        </div>
+        <button id = "save-button" *ngIf = "EditSpan == 'Cancel'" (click) = "saveDetail()">Save</button>
+    </div>
+    <div class = "user-details">
+        <span>Full name</span>
+        <input type ="text" [placeholder] = "user.fullName" [(ngModel)] = "userNameVal" class = "input-field" formControlName = 'name' [readonly] = "isReadOnly" [ngClass]="{'faint-text': isReadOnly}">
+    </div>
+    <div class = "user-details">
+        <span>Email Id</span>
+        <input type ="text" [placeholder] = "user.email" [(ngModel)] = "emailVal" class = "input-field" formControlName = 'email' [readonly] = "isReadOnly" [ngClass]="{'faint-text': isReadOnly}">
+    </div>
+    <div class = "user-details">
+        <span>Password</span>
+        <input type ="text"placeholder ="*************" class = "input-field" formControlName = 'password' [readonly] = "isReadOnly" [ngClass]="{'faint-text': isReadOnly}">
+    </div>
+    <div class = "user-details">
+        <span>Mobile Number</span>
+        <input type ="text" [placeholder] = "user.mobnum" [(ngModel)] = "mobNumVal" class = "input-field" formControlName = 'mobnum' [readonly] = "isReadOnly" [ngClass]="{'faint-text': isReadOnly}">
+    </div>
+</div>
+        <div style="display: flex;justify-content: space-between;">
+            <span class = "sub-title">Address Details</span>
+            <button id = "address-button" (click) = "addNewAddress()">Add new Address</button>    
+        </div>
+        <div *ngFor = "let address of fullAddress;let i = index">
+            <app-edit-cart-address [inputAddress] = "address" [count] = "i + 1" ></app-edit-cart-address>
+        </div>
+</div>

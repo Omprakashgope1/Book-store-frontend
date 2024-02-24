@@ -1,0 +1,29 @@
+
+<div id = "login-bar-outer-cnt" [style.justify-content]= "state ? 'space-between' :'space-around'">
+    <div *ngIf = "state else Profile" id = "login-inner-cnt">
+        <div style="display: flex;flex-direction: column;">
+            <span id = "welcome">Welcome</span>
+            <span>To access account and manage orders</span>
+        </div>
+        <button routerLink = "/login">LOGIN/SIGNUP</button>
+    </div>
+    <ng-template #Profile>
+        <span id = "greet">Hello, {{loginUser.fullName}}</span>
+    </ng-template>
+    <hr style="margin: 1px;" *ngIf = "state">
+    <div [style.margin]= "state ? 'space-between' :'space-around'">
+        <div *ngIf = "!state" class = "routeClass" routerLink = "/dashboard/profile">
+            <mat-icon svgIcon = "profile-icon"></mat-icon>
+            <span>Profile</span>
+        </div>
+        <div routerLink = "/dashboard/order" class = "routeClass">
+            <mat-icon svgIcon = "order-icon"></mat-icon>
+            <span>My Orders</span>
+        </div>
+        <div class = "routeClass">
+            <mat-icon svgIcon = "heart-icon"></mat-icon>
+            <span>Wishlist</span>
+        </div>
+    </div>
+    <button id = "logOut" *ngIf = "!state" (click) = "handleLogOut()">Logout</button>
+</div>

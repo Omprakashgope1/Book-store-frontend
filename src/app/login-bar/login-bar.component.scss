@@ -1,0 +1,59 @@
+#login-bar-outer-cnt
+{
+    width: 261px;
+    height: 182px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 19px;
+    #login-inner-cnt
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    span{
+        text-align: left;
+        font: normal normal 400 12px/16px Roboto;
+        letter-spacing: 0px;
+        color: #878787;
+        opacity: 1;
+    }
+    #welcome
+    {
+        text-align: left;
+        font: normal normal 500 12px/16px Roboto;
+        letter-spacing: 0px;
+        color: #0A0102;
+        opacity: 1;
+    }
+    button{
+        width: 127px;
+        height: 33px;
+        border: 1px solid #A03037;
+        border-radius: 2px;
+        text-align: center;
+        font: normal normal 500 12px/16px Roboto;
+        letter-spacing: 0px;
+        color: #A03037;
+        opacity: 1;
+        margin-top: 10px;
+    }
+}
+.routeClass{
+    display: flex;
+    margin: 4px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:5px;
+}
+#greet{
+    font: normal normal 500 12px/16px Roboto !important;
+    letter-spacing : 0px;
+    color: #0A0102 !important;
+    opacity: 1;
+}

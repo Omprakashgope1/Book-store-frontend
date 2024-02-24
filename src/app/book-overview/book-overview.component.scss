@@ -1,0 +1,301 @@
+#book-label
+{
+    font: normal normal 400 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #9D9D9D;
+    opacity: 1;
+    margin-bottom: 32px;
+    span{
+        font: normal normal 400 12px/16px Roboto;
+        letter-spacing: 0px;
+        color: #0A0102;
+        opacity: 1;
+    }
+}
+.main-outer-cnt
+{
+    width: 74%;
+    display: flex;
+}
+.first-outer-cnt
+{
+    width: 4%;
+}
+.small-img
+{
+    width: 100%;
+    height: 44.71px;
+}
+.second-outer-cnt
+{
+    width:35%;
+}
+.book-cnt
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #D1D1D1;
+    border-radius: 2px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:25.6px;
+}
+.book-cnt img
+{
+    width: 80%;
+    height: 363.71px;
+}
+.third-outer-cnt
+{
+    width: 61%;
+    margin-left: 5%;
+    box-sizing: border-box;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#add-to-bag
+{
+    width: 100%;
+    height: 40px;
+/* UI Properties */
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 1;
+    font: normal normal medium 15px/18px Lato;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+}
+#add-to-wishlist
+{
+    width: 32%;
+    height: 40px;
+    /* UI Properties */
+    background: #333333 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 1;
+    font: normal normal medium 15px/18px Lato;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+}
+#title
+{
+    text-align: left;
+    font: normal normal normal 28px/37px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+#author
+{
+    text-align: left;
+    font: normal normal normal 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+#rate
+{
+    width: 8%;
+    background-color: #388E3C;
+    justify-content: center;
+    display: flex;
+    span{
+        font: normal normal bold 14px/19px Roboto;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        opacity: 1;
+    }
+    mat-icon{
+        width: 22%;
+        height: 11px;
+        background:  0% 0% no-repeat padding-box;
+        opacity: 1;
+    }
+}
+#numOfReviews
+{
+    text-align: left;
+    font: normal normal normal 15px/20px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1; 
+    position: relative;
+    bottom: 3px;
+    margin-left: 5px;   
+}
+.price-div > span:nth-child(1) {
+    /* Your styles here */
+    text-align: left;
+    font-size: 30px;
+    font-family: Roboto,sans-serif;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+.price-div > span:nth-child(2)
+{
+    text-align: left;
+    text-decoration: line-through;
+    font: normal normal normal 15px/20px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+    position: relative;
+    bottom: 10px;
+    left: 3px;
+}
+.book-info
+{
+    display: flex;
+    flex-direction: column;
+    span:nth-child(1)
+    {
+        text-align: left;
+        font: normal normal normal 15px/20px Roboto;
+        letter-spacing: 0px;
+        color: #878787;
+        opacity: 1;
+        ::before{
+            content: '\2022'; /* Unicode for bullet point */
+            color: #0A0102; /* Color of the bullet */
+            margin-right: 5px;
+        }
+    }
+    span:nth-child(2)
+    {
+        text-align: left;
+        font: normal normal normal 12px/16px Roboto;
+        font-family: Roboto,sans-serif;
+        letter-spacing: 0px;
+        color: #373434;
+        opacity: 1;
+    }
+}
+.customer-review
+{
+    >span:nth-child(1){
+        text-align: left;
+        font: normal normal normal 18px/24px Roboto;
+        letter-spacing: 0px;
+        color: #0A0102;
+        opacity: 1;
+    }
+    #customer-star{
+        height: 192px;
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+        border-radius: 2px;
+        opacity:1;
+        display: flex;
+        flex-direction: column;
+        color: #0A0102;
+        padding: 20px;
+        gap:8px;
+        div{
+            display: flex;
+            flex-direction: row;
+            z-index: 1;
+        }
+        textarea{
+            height: 83px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border-radius: 3px;
+            opacity: 1;
+            bottom: 70px;
+            z-index: 8;
+            word-wrap: break-word;
+            background-color: white;
+            resize: none;
+            margin-bottom: 5px;
+            margin-left: 14px;
+            margin-right: 14px;
+        }
+        button{
+            align-self: flex-end;
+            height: 24px;
+            /* UI Properties */
+            background: #3371B5 0% 0% no-repeat padding-box;
+            border-radius: 2px;
+            opacity: 1;
+            position: relative;
+            right: 20px;
+            text-align: left;
+            font: normal normal normal 14px/19px Roboto;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            text-transform: capitalize;
+            opacity: 1;
+        }
+    }
+}
+    #prefix-name{
+        width: 27px;
+        height: 27px;
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+        border: 1px solid #E4E4E4;
+        opacity: 1;
+        border-radius: 50%;
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-right: 5px;
+    }
+    #comments
+    {
+        display: flex;
+        // flex-direction: column;
+        #passed-comments{
+            height: 40px;
+            text-align: left;
+            font: normal normal normal 12px/16px Roboto;
+            letter-spacing: 0px;
+            color: #707070;
+            opacity: 1;
+        }
+    }
+    #name
+    {
+        height: 20px;
+        /* UI Properties */
+        text-align: left;
+        font: normal normal normal 15px/20px Roboto;
+        letter-spacing: 0px;
+        color: #0A0102;
+        opacity: 1;
+    }
+    #cart-input
+    {
+        width: 66px;
+        height: 38px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #DBDBDB;
+        border-radius: 2px;
+        opacity: 1;
+        text-align: center;
+    }
+    .add-reduce-button
+    {
+        width: 38px;
+        height: 38px;
+        background: #FAFAFA 0% 0% no-repeat padding-box;
+        border: 1px solid #DBDBDB;
+        opacity: 1;
+        border-radius: 50%;
+    }
+    #span-book::before{
+        content: "\2022"; /* Unicode character for a bullet point */
+        color: black; /* Example color */
+        font-size: 20px; /* Example font size */
+        margin-right: 8px;
+    }
+

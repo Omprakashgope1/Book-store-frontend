@@ -1,0 +1,13 @@
+<div style = "display: flex;justify-content: space-between;width:90%;">
+    <span id = "book-label">Books<span id="bookCount">({{bookList.length}})</span></span>
+    <select id = "sort">
+        <option value ="relevance">sort by relevance</option>
+        <option value="Name">sort by Name</option>
+        <option value="Date">sort by Date</option>
+    </select>
+</div>
+<div style="display: flex;gap:70px;flex-wrap: wrap;">
+<div *ngFor = "let book of bookList|search:searchValue">
+    <app-book-intro [book] = 'book' ></app-book-intro>
+</div>
+</div>

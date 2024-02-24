@@ -1,0 +1,97 @@
+<div style = "display: flex;justify-content: space-between;width:90%;">
+  <span id = "book-label">Home/<span>Book({{book.id}})</span></span>
+</div>
+<div class="main-outer-cnt">
+  <div class="first-outer-cnt">
+    <img
+      [src]="book.image"
+      alt="first-pic"
+      class = "small-img"
+    />
+    <img
+      src="../../assets/images/book-overview.png"
+      alt="second-pic"
+      class = "small-img"
+    />
+    </div>
+    <div class="second-outer-cnt">
+        <div class ="book-cnt">
+      <img
+      [src]="book.image"
+        alt="cover-pic"
+      />
+    </div>
+      <div id = "add-button"style = "display: flex;justify-content: space-between;">
+      <div style="width: 33%;">
+        <button id = "add-to-bag" (click) = "addToCart()" *ngIf = "!toggle else other">Add to Bag</button>
+        <ng-template #other>
+        <div style="gap:5px;display: flex;">
+          <button class = "add-reduce-button" (click) = "handleAmount(cartValue.value,'sub')">-</button>
+          <input type="number" id = "cart-input" #cartValue [(ngModel)] = "amountToggle" [readonly]>
+          <button class = "add-reduce-button" (click) = "handleAmount(cartValue.value,'add')">+</button>
+        </div>
+      </ng-template>
+      </div>
+      <button id = "add-to-wishlist">WishList</button>
+        </div>
+      
+    
+    </div>
+    <div class="third-outer-cnt">
+      <div style = "display: flex;flex-direction: column;">
+        <span id="title">{{book.title}}</span>
+        <span id = "author">{{book.author}}</span>
+      </div>
+      <div class="rating-div" style = "display: flex;">
+        <div  id = "rate">
+          <span id="rating">{{countStar == 0 ? 3.3 : countStar}}</span>
+          <mat-icon svgIcon="star-icon"></mat-icon>
+        </div>
+        <span id="numOfReviews">({{commentList.length}})</span>
+      </div>
+      <div class="price-div">
+        <span>Rs.{{book.price}}</span>
+        <span>Rs.{{book.price + 100}}</span>
+      </div>
+      <hr>
+      <div class ="book-info">
+        <span id = "span-book">Book detail</span>
+        <span>{{book.description}}</span>
+      </div>
+      <hr>
+      <div class = "customer-review" *ngIf="tokken.length > 0">
+        <span>Customer Feedback</span>
+        <div id = "customer-star">
+          <span>Overall rating</span>
+          <div>
+            <mat-icon svgIcon="black-star-icon" *ngIf = "starCount < 1" (click) = "addRating(1)"></mat-icon>
+            <mat-icon svgIcon="yellow-icon" *ngIf = "starCount >= 1" (click) = "addRating(1)"></mat-icon>
+            <mat-icon svgIcon="black-star-icon" *ngIf = "starCount < 2" (click) = "addRating(2)"></mat-icon>
+            <mat-icon svgIcon="yellow-icon" *ngIf = "starCount >=  2" (click) = "addRating(2)"></mat-icon>
+            <mat-icon svgIcon="black-star-icon" *ngIf = "starCount < 3" (click) = "addRating(3)"></mat-icon>
+            <mat-icon svgIcon="yellow-icon" *ngIf = "starCount >=  3" (click) = "addRating(3)"></mat-icon>
+            <mat-icon svgIcon="black-star-icon" *ngIf = "starCount < 4" (click) = "addRating(4)"></mat-icon>
+            <mat-icon svgIcon="yellow-icon" *ngIf = "starCount >=  4" (click) = "addRating(4)"></mat-icon>
+            <mat-icon svgIcon="black-star-icon" *ngIf = "starCount < 5" (click) = "addRating(5)"></mat-icon>
+            <mat-icon svgIcon="yellow-icon" *ngIf = "starCount >=  5" (click) = "addRating(5)"></mat-icon>
+        </div>
+            <textarea id="write-reviews" [(ngModel)] = "review"></textarea>
+            <button (click) = "addReviews()">Submit</button>
+        </div>
+        
+      </div>
+      <div id="comments" *ngFor = "let comment of commentList">
+        <div id="prefix-name">{{comment.nameStarting}}</div>
+        <div style = "margin-top: 3px;">
+        <span id = "name">{{comment.name}}</span>
+        <div style = "margin-bottom: 5px;display: flex;" >
+          <mat-icon svgIcon="yellow-icon" *ngFor="let _ of [].constructor(comment.star)"></mat-icon>
+          <mat-icon svgIcon = "black-star-icon" *ngFor = "let _ of [].constructor(5 - comment.star)"></mat-icon>
+        </div>
+        <span id = "passed-comments">
+          {{comment.review}}
+        </span>
+      </div>
+      </div>
+    </div>
+</div>

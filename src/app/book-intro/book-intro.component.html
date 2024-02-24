@@ -1,0 +1,30 @@
+<div id = "main-cnt" (click) = "handleToggle()">
+    <div id ="image-cnt" [ngClass]="{'out-of-stock-filter': book.quantity == 0}">
+        <img [src]="book.image" alt="book-cover" id = "img" [ngClass]="{'out-of-stock-filter': book.quantity == 0}">
+    </div>
+    <div class = "lower-cnt" [ngClass]="{'out-of-stock-filter': book.quantity == 0}">
+        <div style="display: flex;flex-direction: column;gap:5px">
+        <span id = "title">{{book.title}}</span>
+        <span id = "author">{{book.author}}</span>
+        </div>
+        <div id = 'rating-div' style="display: flex;">
+            <div style="display: flex;">
+            <div style="background-color: green;padding-left: 5px;align-items: center;">
+                <span class = "rating">{{reviewRating == 0 ? 3.3:reviewRating}}</span>
+                <mat-icon svgIcon = "star-icon" style="height: 12px;"></mat-icon>
+            </div>
+            <div>
+                <span id = "numOfPeople">(12)</span>
+            </div>
+            </div> 
+        </div>
+        <div style="display: flex;">
+        <span id = "actual-amount">Rs.{{book.price}}</span>
+        <span id = "mrp">Rs.{{mrpPrice}}</span>
+        </div>     
+    </div>
+    <div id = "not-in-stock" *ngIf = "book.quantity == 0">
+        <span>OUT OF STOCK</span>
+    </div>
+</div>
+

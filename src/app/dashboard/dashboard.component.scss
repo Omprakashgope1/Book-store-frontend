@@ -1,0 +1,14 @@
+::ng-deep .app-dashboard
+{
+    display: block;
+    width: 100%;
+    height: 100vh;
+}
+#main-cnt
+{
+    margin-left: 200px;
+    display: flex;
+    flex-direction:column;
+    margin-top:40px;
+    width: 90%;
+}

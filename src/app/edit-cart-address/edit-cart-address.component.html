@@ -1,0 +1,45 @@
+<div class = "your-details" [formGroup] = 'userDetailForm'>
+    <div id = "address-header">
+        <div style = "display:flex;gap:10px">
+            <span class = "sub-topic">{{addressInput}}</span>
+            <span class = "edit-label" (click) = "addressEdit()">{{editSpan2}}</span>
+        </div>
+        <button id = "save-button" *ngIf = "editSpan2 == 'Cancel'" (click) = "saveAddress()">Save</button>
+    </div>
+    <div class = "user-details">
+        <span>Address</span>
+        <textarea class = "input-field" formControlName = "fullAddress" [readonly] = "isReadOnly2" [placeholder] = "fullAddressVal || 'fullAddress'"
+        [(ngModel)] = "fullAddressVal" [ngClass]="{'faint-text': isReadOnly2}"></textarea>
+    </div>
+    <div style = "display: flex;width: 100%;justify-content: space-between;">
+        <div class = "user-details" style = "width: 49%;">
+            <span>city/town</span>
+            <input type = "text" class = "input-field" formControlName = "city" [readonly] = "isReadOnly2" [(ngModel)] = "cityVal" 
+            [placeholder] = "cityVal || 'city'" [ngClass]="{'faint-text': isReadOnly2}">
+        </div>
+        <div class = "user-details" style = "width: 49%;">
+            <span>State</span>
+            <input type="text" class = "input-field" formControlName = "state" [readonly] = "isReadOnly2" [(ngModel)] = "stateVal"
+             [placeholder] = "stateVal || 'state'" [ngClass]="{'faint-text': isReadOnly2}">
+        </div>
+    </div>
+    <div class = "user-details">
+        <div>
+        <label>Type</label>
+        </div>
+        <div id = "radio-button">
+        <div>
+            <input type = "radio" name = "type{{count}}" value="Home" [checked] = "inputAddress.type == 1" (change) = "changeInput('Home')">
+            <label>Home</label>
+        </div>
+        <div>
+            <input type = "radio" name = "type{{count}}" value="Work" (change) = "changeInput('Work')" [checked] = "inputAddress.type == 2">
+            <label>Work</label>
+        </div>
+        <div>
+            <input type = "radio" name = "type{{count}}" value = "Other" (change) = "changeInput('Other')" [checked] = "inputAddress.type == 3">
+            <label>Other</label>
+        </div>      
+        </div>
+    </div>
+</div>

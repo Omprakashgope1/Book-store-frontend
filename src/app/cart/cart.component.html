@@ -1,0 +1,63 @@
+<div style = "display: flex;justify-content: space-between;width:90%;">
+    <span id = "book-label">Home/<span>My cart</span></span>
+</div>
+<div class = 'main-outer-cnt'>
+    <div class = 'cart-cnt'>
+        <div class = "detail">
+            <span>My cart({{cartList.length}})</span>
+            <div id = "address">
+                <mat-icon svgIcon = "gps-icon"></mat-icon>
+                <select >
+                    <option disabled selected>Select an option</option>
+                    <option *ngFor = "let res of completeAddress"  [value] = "res.fullAddress">{{res.fullAddress}}</option>
+                </select>
+            </div>
+        </div>
+        <div *ngFor = "let cart of cartList">
+            <app-cart-book [cart] = 'cart' [input] = "'order'"></app-cart-book>
+        </div>
+        <button id = "place-order-button" (click)="openAddress()" *ngIf = "cartList.length > 0">Place Order</button>
+    </div>
+    <div class = "address-detail" *ngIf = "addressSummary else other1">
+        <div id = "first-cnt">
+        <span id = "customer-span">Customer Details</span>
+        <button id = "address-button" (click) = "addAddress()">Add New Address</button>
+        </div>
+        <div class = "name">
+            <div class = "info">
+                <span class = "full-info">Full name</span>
+                <input type = "text" [placeholder]="user.fullName || ''">
+            </div>
+            <div class = "info">
+                <span class = "full-info">Mobile Number</span>
+                <input type = "tel" [placeholder]="user.mobnum || ''">
+            </div>
+        </div>
+        <div class = "work-address" *ngFor = "let address of completeAddress;let i = index">
+            <input type = 'radio' name = "address" value = "address{{i + 1}}" [checked] = "inputToggle == input.value"class = 'radio-button' (change)="handleChange(input.value)"#input>
+            <div style = "width: 100%;">
+                <app-address-cart [toggle] = "inputToggle == input.value " [inputField] = "address"></app-address-cart>
+            </div>
+        </div>
+        <button id = "continue-button" (click) ="openOrderSummary()">CONTINUE</button>
+    </div>
+    <ng-template #other1>
+        <div class = "order-summary1">
+            <span class = "adress-detail1">Address Detail</span>
+        </div>
+    </ng-template> 
+    <div class = "order-summary" *ngIf = "orderSummary else other2">
+        <div class = "detail">
+            <span>Order Summary</span>
+        </div>
+        <div *ngFor = "let cart of cartList">
+            <app-cart-book [cart] = 'cart' [input] = "'summary'" ></app-cart-book>
+        </div>
+        <button id = "checkout-button" (click) ="handleOrder()">CHECKOUT</button>
+    </div>
+    <ng-template #other2>
+        <div class = "order-summary1">
+            <span class = "adress-detail1">Order Summary</span>
+        </div>
+    </ng-template> 
+</div>

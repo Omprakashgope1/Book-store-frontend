@@ -1,0 +1,133 @@
+// ::ng-deep .app-book-intro
+// {
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+// }
+#main-cnt
+{
+    width: 235px;
+    height: 275px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E2E2E2;
+    border-radius: 3px;
+    opacity: 1;
+}
+#image-cnt
+{
+    height: 65%;
+    width: 100%;
+    background: #F5F5F5 0% 0% no-repeat padding-box;
+    border-radius: 2px 2px 0px 0px;
+    opacity: 1;
+}
+#img{
+    position:relative;
+    height: 80%;
+    width: 50%;
+    align-self: center;
+    left:20%;
+    top:10%;
+}
+.lower-cnt
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 35%;
+    width: 89%;
+    padding-left: 25px;
+}
+#title
+{
+    height:20px;
+    width: 90%;
+    // font-size: 13px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal 600 16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+    overflow: hidden;
+    display: inline;
+}
+#author
+{
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+.rating
+{
+    text-align: left;
+    font: normal normal bold 13px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+
+}
+#actual-amount
+{
+    width: 48px;
+    height: 16px;
+    text-align: left;
+    font: normal normal bold 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+#mrp
+{
+    width: 36px;
+    height: 13px;
+    /* UI Properties */
+    text-align: left;
+    text-decoration: line-through;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+#numOfPeople
+{
+    width: 18px;
+    height: 13px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+    position: relative;
+    bottom: 5px;
+}
+#not-in-stock
+{
+    position: relative;
+    display: flex;
+    width: 77%;
+    height: 37px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 2px;
+    opacity: 0.96;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    bottom: 140px;
+    left: 20px;
+    font: normal normal 600 15px/18px Lato;
+    letter-spacing: 0px;
+    color: #0B0203;
+    text-transform: uppercase;
+    opacity: 1;
+}
+.out-of-stock-filter{
+    background-color: #F5F5F5;
+    opacity: 0.5;
+}

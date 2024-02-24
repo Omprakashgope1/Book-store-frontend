@@ -1,0 +1,27 @@
+<div id = "main-cnt">
+    <div class = "logo-field">
+        <img src="../../assets/images/education.png" alt="book-image" (click) = "handleToggle()">
+        <span class = "logo" (click) = "handleToggle()">Bookstore</span>
+        <div id = "search-field">
+            <mat-icon svgIcon = "search-icon" style = "margin-left: 8px;margin-right: 5px;" id = "search-icon"></mat-icon>
+            <input type = "text" id = "input-field" placeholder="Search......" [(ngModel)]="searchQuery" (input)="updateSearchQuery()">
+        </div>
+    </div>
+    <div style="display: flex;width: 15%;justify-content: space-around;">
+    <div class = "user-field" >
+        <mat-icon svgIcon = "user-icon" class = "icon" (click) = "toggleLoginBar()" ></mat-icon>
+        <span class = "info">{{user.fullName ? user.fullName : 'Profile'}}</span>
+        <div *ngIf = "barToggle" id = "bar">
+            <app-login-bar></app-login-bar>
+        </div>
+    </div>
+
+    <div class = "user-field" (click) = "handleCart()">
+        <mat-icon svgIcon = "cart-icon" class = "icon"></mat-icon>
+        <span class = "info">Cart</span>
+        <div id = cartCount [style.display] = "cartCount == 0 ? 'none' : 'block'">{{cartCount}}</div>
+    </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,68 @@
+
+.address-detail
+{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    gap:17px;
+    input[type = "address"]
+    {
+        height: 45px;
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+        border: 1px solid #DCDCDC;
+        border-radius: 2px;
+        opacity: 1;
+    }
+    textarea{
+        width: 69%;
+        height: 82px;
+        /* UI Properties */
+        background: #F5F5F5 0% 0% no-repeat padding-box;
+        border: 1px solid #DCDCDC;
+        border-radius: 2px;
+        opacity: 1;
+        resize: none;
+    }
+}
+.full-info
+{
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+    font-weight: 600;
+}
+#work-span,#home-span
+{
+    text-align: left;
+    font-family: Roboto;
+    font-weight: 600;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+#edit-button
+{
+    text-align: left;
+    font-size: 12px;
+    font-family: Roboto;
+    letter-spacing: 0px;
+    color: #A03037;
+    opacity: 1;
+    border:transparent;
+    background-color: transparent;
+    margin-left: 20px;
+}
+#full-address-span
+{
+    width: 55%;
+    height: 46px;
+    display: block;
+    overflow: auto;
+}
+
+
+

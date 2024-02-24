@@ -1,0 +1,6 @@
+<div style = "display: flex;justify-content: space-between;width:90%;">
+    <span id = "book-label">Home/<span>My Order</span></span>
+</div>
+<div *ngFor = "let order of orderList">
+    <app-wishlist-orderlist [order] = "order"></app-wishlist-orderlist>
+</div>
