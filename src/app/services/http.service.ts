@@ -47,8 +47,17 @@ export class HttpService {
   {
     return this.http.get(`https://localhost:7042/api/Review/GetReviews?bookId=${bookId}`);
   }
-  addToCart(addObj:{}):Observable<any>
+  addToCart(addObj:{},tokken?:string):Observable<any>
   {
+    if(tokken)
+    {
+      const header:{} = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokken}`
+        })};
+        return this.http.post(`https://localhost:7042/api/Cart/addToCart`,addObj,header);
+    }
     return this.http.post(`https://localhost:7042/api/Cart/addToCart`,addObj,this.header);
   }
   getUser(tokken:string):Observable<any>

@@ -26,9 +26,9 @@
         <button id = "add-to-bag" (click) = "addToCart()" *ngIf = "!toggle else other">Add to Bag</button>
         <ng-template #other>
         <div style="gap:5px;display: flex;">
-          <button class = "add-reduce-button" (click) = "handleAmount(cartValue.value,'sub')">-</button>
+          <button class = "add-reduce-button" (click) = "handleAmount('sub')">-</button>
           <input type="number" id = "cart-input" #cartValue [(ngModel)] = "amountToggle" [readonly]>
-          <button class = "add-reduce-button" (click) = "handleAmount(cartValue.value,'add')">+</button>
+          <button class = "add-reduce-button" (click) = "handleAmount('add')">+</button>
         </div>
       </ng-template>
       </div>

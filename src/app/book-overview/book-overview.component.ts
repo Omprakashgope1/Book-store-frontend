@@ -133,8 +133,16 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
       (res:any)=> {
       this.cartList = res.data
       },err => {
-        this.book.quantity = 1
-        this.cartList.push(this.book)
+        const addObj:{}= {
+          id: this.book.id,
+        "title": this.book.title,
+        "description": this.book.description,
+        "author": this.book.author,
+        "price": this.book.price,
+        "quantity": 1,
+        "image":this.book.image
+        }
+        this.cartList.push(addObj)
       }
     )
     this.amountToggle++;
@@ -151,16 +159,18 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
       this.amountToggle = cart[0].quantity
     }
   }
-  handleAmount(amount:string,operation:string)
+  handleAmount(operation:string)
   {
-    const amountVal = parseInt(amount)
-    operation == 'add' ? this.amountToggle = amountVal + 1:this.amountToggle = amountVal -1;
+    // debugger
+    operation == 'add' ? this.amountToggle = this.amountToggle + 1:this.amountToggle = this.amountToggle -1;
     console.log(this.amountToggle)
     if(this.amountToggle == 0)
     {
       this.httpService.removeCart(this.idBook).subscribe(
         res => console.log(res)
       )
+      this.cartList = this.cartList.filter((x:any) => x.id != this.idBook)
+      this.bookService.setCart(this.cartList)
       this.toggle = false;
     }
     else if(this.amountToggle > this.book.quantity)

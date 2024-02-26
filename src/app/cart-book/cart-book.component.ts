@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Subscription } from 'rxjs';
 import { BookService } from '../services/book.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-cart-book',
@@ -70,6 +71,11 @@ export class CartBookComponent implements OnInit,OnDestroy {
               this.cartList = this.cartList.filter((x:any) => x.id != this.cart.id)
               this.bookService.setCart(this.cartList)
             }
+          },
+          err =>
+          {
+            this.cartList = this.cartList.filter((x:any) => x.id != this.cart.id)
+            this.bookService.setCart(this.cartList)
           }
         )
   }

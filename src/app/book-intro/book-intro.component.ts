@@ -27,6 +27,7 @@ export class BookIntroComponent implements OnInit {
   };
   reviewRating:number = 0
   mrpPrice:number = 0;
+  count:number = 0;
 
   constructor(public register:MatIconRegistry,public sanitizer:DomSanitizer,private bookService:BookService,private route:Router,private httpService:HttpService) 
   {
@@ -38,6 +39,7 @@ export class BookIntroComponent implements OnInit {
       {
         for(let review of res.data)
         {
+            this.count++;
             this.reviewRating += review.star
         }
         if(this.reviewRating != 0)

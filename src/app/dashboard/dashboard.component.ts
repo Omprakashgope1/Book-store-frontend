@@ -29,17 +29,20 @@ export class DashboardComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    // console.log(localStorage.getItem('bookTokken'))
     this.cartSubscription = this.bookService.cartListObservable.subscribe(
     (res:any) => {
+      debugger
       this.cartList = res
      }
     )
+    if(this.cartList.length != 0)
+    {
+      this.httpService.addToCart(this.cartList).subscribe(res => console.log(res));
+    }
     this.httpService.getCart(this.tokken).subscribe(
       res =>
       {
           this.bookService.setCart(res.data);
-          console.log(res);
       }
     )
     this.httpService.getAllBooks().subscribe(
@@ -63,20 +66,11 @@ export class DashboardComponent implements OnInit {
         this.bookService.setReviewList(res.data);
       }
     )
-      if(this.cartList.length != 0)
-      {
-        let sendObj:any[] = this.cartList.map((ele:{id:Number,quantity:number}) =>
-          {
-            return {bookId:ele.id,quantity:ele.quantity}
-          })
-        this.route.navigate(['/dashboard/cart'])
+    this.httpService.getOrder().subscribe(
+      res => {
+        this.bookService.setOrderList(res.data)
       }
-      this.httpService.getOrder().subscribe(
-        res => {
-          this.bookService.setOrderList(res.data)
-        }
-      )
-      
+    )    
   }
 
 }
