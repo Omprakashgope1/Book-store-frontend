@@ -23,5 +23,10 @@
     </div>
     </div>
 </div>
+<div style = "z-index: 1;position: relative;bottom: 100px;" *ngIf = "toggleSignUp">
+    <app-login *ngIf = "!showSignUp"></app-login>
+    <app-signup *ngIf = "showSignUp"></app-signup>
+</div>
+
 
 

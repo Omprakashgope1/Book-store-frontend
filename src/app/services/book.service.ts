@@ -29,6 +29,12 @@ export class BookService {
   deliveryAddressObservable = this.deliveryAddress.asObservable();
   private orderList = new BehaviorSubject<[]>([]);
   orderListObservable = this.orderList.asObservable();
+  private toggleLoginCart = new BehaviorSubject<boolean>(false);
+  toggleLoginCartObservable = this.toggleLoginCart.asObservable();
+  private showSignUp= new BehaviorSubject<boolean>(false);
+  showSignUpObservable = this.showSignUp.asObservable();
+  private toggleSignUp = new BehaviorSubject<boolean>(false);
+  toggleSignUpObservable = this.toggleSignUp.asObservable();
 
   constructor() { }
   setBookInfo(noteObj?:{},desc?:string)
@@ -79,5 +85,17 @@ export class BookService {
   setOrderList(state:[])
   {
     this.orderList.next(state);
+  }
+  setToggleLoginCart(state:boolean)
+  {
+    this.toggleLoginCart.next(state);
+  }
+  setShowSignUp(state:boolean)
+  {
+    this.showSignUp.next(state);
+  }
+  setToggleSignUp(state:boolean)
+  {
+    this.toggleSignUp.next(state);
   }
 }

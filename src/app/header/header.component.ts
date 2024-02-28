@@ -21,9 +21,11 @@ export class HeaderComponent implements OnInit,OnDestroy {
   userSubscription!:Subscription
   cartSubscription!:Subscription
   searchQuery!:string
+  showSignUp:boolean = false
   user:any = {};
   cartCount:number = 0;
   barToggle:boolean = false;
+  toggleSignUp:boolean = false
   constructor(public iconRegistry: MatIconRegistry, public sanitizer: DomSanitizer,private bookService:BookService,private route:Router,private httpService:HttpService,
     public router:Router)
   {
@@ -38,9 +40,15 @@ export class HeaderComponent implements OnInit,OnDestroy {
     this.userSubscription = this.bookService.userObservable.subscribe(
       res => this.user = res
     )
+    this.bookService.toggleSignUpObservable.subscribe(res => this.toggleSignUp = res)
     this.cartSubscription = this.bookService.cartListObservable.subscribe(
       res => this.cartCount = res.length
     )
+    this.bookService.showSignUpObservable.subscribe(res => 
+      {
+        debugger
+        this.showSignUp = res
+      })
   }
   handleToggle()
   {

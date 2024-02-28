@@ -24,7 +24,11 @@ export class CartComponent implements OnInit,OnDestroy,OnChanges {
   user!:any
   inputToggle:string = "address1"
   completeAddress!:any
+  showLogin:boolean = false
   bookList!:[]
+  tokkenSubscription!:Subscription
+  loginToggleSubscription!:Subscription
+  tokken!:string
   
   constructor(private register:MatIconRegistry,private sanitizer:DomSanitizer,private bookService:BookService,private httpSerVice :HttpService,private route:Router)
   {
@@ -32,6 +36,10 @@ export class CartComponent implements OnInit,OnDestroy,OnChanges {
   }
 
   ngOnInit(): void {
+    this.tokkenSubscription = this.bookService.tokkenObservable.subscribe(res => this.tokken = res)
+    this.loginToggleSubscription = this.bookService.toggleLoginCartObservable.subscribe(
+        res => this.showLogin = res
+    )
     this.addressSubscription = this.bookService.addressObservable.subscribe(
       (res:any) => {
         this.completeAddress = res
@@ -59,7 +67,7 @@ export class CartComponent implements OnInit,OnDestroy,OnChanges {
   {
     if(Object.keys(this.user).length == 0)
    {
-     this.route.navigate(['/login'])
+    this.bookService.setToggleLoginCart(true)
    } 
    else{
     this.addressSummary = true;
@@ -77,11 +85,11 @@ export class CartComponent implements OnInit,OnDestroy,OnChanges {
       {
         return {bookId:res.id,quantity:res.quantity}
       })
-    this.httpSerVice.addOrder(orderObj).subscribe
+    this.httpSerVice.addOrder(orderObj,this.tokken).subscribe
     (
       res => {
         this.bookService.setCart([])
-        this.httpSerVice.getAllBooks().subscribe(res => {debugger
+        this.httpSerVice.getAllBooks().subscribe(res => {
           this.bookService.setBooks(res.data)
           console.log(res.data)})
 

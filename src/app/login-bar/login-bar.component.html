@@ -5,7 +5,7 @@
             <span id = "welcome">Welcome</span>
             <span>To access account and manage orders</span>
         </div>
-        <button routerLink = "/login">LOGIN/SIGNUP</button>
+        <button (click) = "handleLogin()">LOGIN/SIGNUP</button>
     </div>
     <ng-template #Profile>
         <span id = "greet">Hello, {{loginUser.fullName}}</span>
@@ -26,4 +26,6 @@
         </div>
     </div>
     <button id = "logOut" *ngIf = "!state" (click) = "handleLogOut()">Logout</button>
+   
 </div>
+

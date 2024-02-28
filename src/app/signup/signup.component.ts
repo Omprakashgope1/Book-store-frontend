@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators ,FormBuilder} from '@angular/forms';
 import { UserService} from '../services/user.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,8 +14,11 @@ export class SignupComponent implements OnInit {
   signupForm!:FormGroup;
   submitted : boolean = false;
   showAlert!:boolean
+  showSignUp!:boolean
+  subscription!:Subscription
+  message:string = ""
 
-  constructor(public formBuilder:FormBuilder,public userService:UserService,private route:Router) { }
+  constructor(public formBuilder:FormBuilder,public userService:UserService,private route:Router,private bookService:BookService) { }
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
@@ -29,17 +34,21 @@ export class SignupComponent implements OnInit {
   handleSignUp()
   {
     this.submitted = true;
-    console.log("hello");
     const {fullName,email,password,mobnum} = this.signupForm.value;
     this.userService.signUpfun({fullName: fullName, email: email, password: password, mobnum: mobnum}).subscribe(
       (res: any) => {
         console.log(res);
         if(res.success)
         {
-          this.route.navigate(['/login'])
+          this.message = "login Successful"
+          this.showAlert = true
+          setTimeout(() =>
+          {
+            this.showAlert = false
+          },5000)
         }
         else{
-          debugger
+          this.message = "invalid user"
           this.showAlert = true
           setTimeout(() =>
           {
@@ -48,6 +57,7 @@ export class SignupComponent implements OnInit {
         }
       },
       (err: any) => {
+        this.message = "invalid user"
         this.showAlert = true
           setTimeout(() =>
           {
@@ -59,7 +69,8 @@ export class SignupComponent implements OnInit {
   }
   handleLogin()
   {
-      this.route.navigate(['/login'])
+    debugger
+    this.bookService.setShowSignUp(false)
   }
 
 

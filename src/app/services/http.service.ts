@@ -39,8 +39,16 @@ export class HttpService {
   {
     return this.http.get('https://localhost:7042/api/Book/GetAll');
   }
-  addReviews(reviewObj:{}):Observable<any>
+  addReviews(reviewObj:{},tokken?:string):Observable<any>
   {
+    if(tokken)
+    {const header:{} = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokken}`
+      })};
+    return this.http.post('https://localhost:7042/api/Review/AddReviews',reviewObj,header);
+    }
     return this.http.post('https://localhost:7042/api/Review/AddReviews',reviewObj,this.header);
   }
   getReviews(bookId:number):Observable<any>
@@ -88,20 +96,47 @@ export class HttpService {
   {
     return this.http.get(`https://localhost:7042/api/Book/BookById?id=`+id);
   }
-  updateCart(updateCartObj:{}):Observable<any>
+  updateCart(updateCartObj:{},tokken?:string):Observable<any>
   {
+    if(tokken)
+    {
+      const header:{} = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokken}`
+        })};
+        return this.http.put('https://localhost:7042/api/Cart/UpdateQuantity',updateCartObj,header)
+    }
     return this.http.put('https://localhost:7042/api/Cart/UpdateQuantity',updateCartObj,this.header)
   }
-  removeCart(bookId:number):Observable<any>
+  removeCart(bookId:number,tokken?:string):Observable<any>
   {
+    if(tokken)
+    {
+      const header:{} = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokken}`
+        })};
+        return this.http.delete(`https://localhost:7042/api/Cart/removeCart?bookId=${bookId}`,header)
+    }
     return this.http.delete(`https://localhost:7042/api/Cart/removeCart?bookId=${bookId}`,this.header)
   }
-  updateUser(userObj:{}):Observable<any>
+  updateUser(userObj:{},tokken?:string):Observable<any>
   {
     return this.http.put('https://localhost:7042/api/User/updateUser',userObj,this.header);
   }
-  addOrder(orderObj:{}):Observable<any>
+  addOrder(orderObj:{},tokken?:string):Observable<any>
   {
+    if(tokken)
+    {
+      const header:{} = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokken}`
+        })};
+        return this.http.post(`https://localhost:7042/api/Order/AddAll`,orderObj,header);
+    }
     return this.http.post(`https://localhost:7042/api/Order/AddAll`,orderObj,this.header);
   }
   getOrder():Observable<any>

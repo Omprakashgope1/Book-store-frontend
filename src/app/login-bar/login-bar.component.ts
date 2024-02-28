@@ -15,6 +15,7 @@ export class LoginBarComponent implements OnInit,OnDestroy {
   loginUser!:any
   state:boolean = false
   userSubscrtiption!:Subscription
+  
   constructor(private bookService:BookService,private register:MatIconRegistry,private sanitizer:DomSanitizer,private route:Router) 
   {
     register.addSvgIconLiteral('heart-icon',sanitizer.bypassSecurityTrustHtml(HEART_ICON)),
@@ -43,5 +44,9 @@ export class LoginBarComponent implements OnInit,OnDestroy {
     this.bookService.setCart([])
     this.state = true;
     this.route.navigate(['']);
+  }
+  handleLogin()
+  {
+    this.bookService.setToggleSignUp(true)
   }
 }

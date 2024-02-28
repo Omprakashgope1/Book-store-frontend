@@ -49,7 +49,7 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
   }
 
   ngOnInit(): void {
-    this.tokken = sessionStorage.getItem('bookTokken') || ""
+    this.bookService.tokkenObservable.subscribe(res => this.tokken = res)
     this.idBook = this.activatedRoute.snapshot.params['bookId']
     this.cartSubscription = this.bookService.cartListObservable.subscribe(
       (res:any) => {
@@ -80,7 +80,6 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
                 }
               }
               nameStarting = nameStarting.toUpperCase()
-              // console.log(nameStarting)
               this.commentList[i].nameStarting = nameStarting
            }
            this.bookService.setReviewList(this.commentList);
@@ -99,9 +98,9 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
   }
   addReviews()
   {
+    debugger
       this.httpService.addReviews({review: this.review,star: this.starCount,bookId: this.book.id}).subscribe(
         res =>{
-          debugger
            this.countStar *= this.commentList.length
           this.countStar += this.starCount
         this.commentList = (res.data);
@@ -129,7 +128,7 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
   }
   addToCart()
   {
-    this.httpService.addToCart({"bookId": this.book.id,"quantity": 1}).subscribe(
+    this.httpService.addToCart({"bookId": this.book.id,"quantity": 1},this.tokken).subscribe(
       (res:any)=> {
       this.cartList = res.data
       },err => {
@@ -166,7 +165,7 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
     console.log(this.amountToggle)
     if(this.amountToggle == 0)
     {
-      this.httpService.removeCart(this.idBook).subscribe(
+      this.httpService.removeCart(this.idBook,this.tokken).subscribe(
         res => console.log(res)
       )
       this.cartList = this.cartList.filter((x:any) => x.id != this.idBook)
@@ -184,7 +183,7 @@ export class BookOverviewComponent implements OnInit,OnDestroy,OnChanges{
   updateCart()
   {
     this.httpService.updateCart({"quantity": this.amountToggle,
-    "bookId":this.idBook }).subscribe(
+    "bookId":this.idBook },this.tokken).subscribe(
       res =>  console.log(res)
     )
     this.cartList.map((res:any) =>

@@ -13,14 +13,16 @@ export class CartBookComponent implements OnInit,OnDestroy {
 
   @Input() cart!:any
   @Input() input!:any
-  
   cartNumber:number = 0
   cartList!:any
   subscription!:Subscription
   bookSubscription!:Subscription
   book!:any
+  tokkenSubscription!:Subscription
+  tokken!:string
   constructor(private httpService:HttpService,private bookService:BookService) { }
   ngOnInit(): void {
+    this.tokkenSubscription = this.bookService.tokkenObservable.subscribe(res => this.tokken = res)
     this.subscription = this.bookService.cartListObservable.subscribe(
       (res:any) => this.cartList = res
     )
@@ -61,8 +63,8 @@ export class CartBookComponent implements OnInit,OnDestroy {
       }
   }
   removeCart()
-  {
-    this.httpService.removeCart(this.cart.id).subscribe
+  { 
+    this.httpService.removeCart(this.cart.id,this.tokken).subscribe
         (
           res => {
             console.log(res)
@@ -83,7 +85,7 @@ export class CartBookComponent implements OnInit,OnDestroy {
   {
     console.log(this.book)
     this.httpService.updateCart({"quantity": this.cartNumber,
-    "bookId":this.book[0].id }).subscribe(
+    "bookId":this.book[0].id },this.tokken).subscribe(
       res =>  console.log(res)
     )
   }
